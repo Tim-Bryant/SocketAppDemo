@@ -28,6 +28,8 @@ public class Server {
 				socket = serverSocket.accept();
 				//创建一个新的线程
 				ServerThread thread=new ServerThread(socket);
+				
+				thread.setPriority(4);//设置线程的优先级，范围1-10 默认为5 降低优先级，防止运行速度过慢
 				//启动线程
 				thread.start();
 				count++;
